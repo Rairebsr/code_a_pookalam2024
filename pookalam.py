@@ -31,47 +31,47 @@ def draw_petal(t, radius,col):
 
 def draw_outer_circle(radius, col):
     t.penup()
-    t.goto(0, -radius)  # Move to the bottom center of the circle
-    t.setheading(0)  # Ensure the turtle is facing right
+    t.goto(0, -radius)
+    t.setheading(0)
     t.pendown()
     t.color(col)
     t.circle(radius)
     
 
 
-# Function to draw large petals behind the small circle
 def large_petals_behind_circle(num_petals=8, length=150, color="violet"):
     for i in range(num_petals):
         t.color(color)
+        t.begin_fill()
         t.penup()
-        angle = 360 / num_petals * i  # Evenly space petals around the circle
+        angle = 360 / num_petals * i
         t.goto(0, 0)
         t.setheading(angle)
-        t.forward(100)  # Move to the position where petals will be drawn
+        t.forward(100)
         t.right(90)
         t.pendown()
         t.begin_fill()
-        t.circle(length, 60)  # Draw a large arc (outer side of the petal)
+        t.circle(length, 60)
         t.left(120)
-        t.circle(length / 2, 60)  # Draw the smaller inner arc
+        t.circle(length / 2, 60)
         t.end_fill()
         t.penup()
 
-# Function to draw large petals
+
 def large_petals(num_petals=8, length=150, color="violet"):
     for i in range(num_petals):
         t.color(color)
         t.width(5)
         t.penup()
-        angle = 360 / num_petals * i  # Evenly space petals around the circle
+        angle = 360 / num_petals * i
         t.goto(0, 0)
         t.setheading(angle)
-        t.forward(100)  # Move to the position where petals will be drawn
+        t.forward(100)
         t.right(90)
         t.pendown()
-        t.circle(length, 60)  # Draw a large arc (outer side of the petal)
+        t.circle(length, 60)
         t.left(120)
-        t.circle(length / 2, 60)  # Draw the smaller inner arc
+        t.circle(length / 2, 60)
         t.penup()
 
 
@@ -85,8 +85,11 @@ def pos():
 
 t.width(5)
 draw_outer_circle(300,"#7c06b8")
+draw_outer_circle(305,"white")
+draw_outer_circle(310,"#7c06b8")
 t.width(50)
 draw_outer_circle(270,"#248017")
+draw_outer_circle(220,"#a10909")
 pos()
 for _ in range(8):
     draw_petal(t, 300,"#fe082a")
